@@ -16,7 +16,7 @@
 
       <% @cancers.each do |cancer| %>
       <tr>
-        <td><%= cancer.user_id %></td>
+        <td><%= cancer.user.created_at %></td>
         <td><%= cancer.cancer_name %></td>
         <td>
           <a href="/cancers/<%= cancer.id %>" class="btn btn-primary">Show</a>
