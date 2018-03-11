@@ -47,8 +47,6 @@ class CancersController < ApplicationController
 
   def update
     @cancer = Cancer.find(params[:id])
-
-    @cancer.user_id = params[:user_id]
     @cancer.cancer_name = params[:cancer_name]
 
     save_status = @cancer.save
