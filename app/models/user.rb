@@ -12,6 +12,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :symptoms,
+             :through => :logs,
+             :source => :symptom
+
   # Validations
 
   # Include default devise modules. Others available are:
