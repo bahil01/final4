@@ -1,6 +1,7 @@
 class SymptomsController < ApplicationController
   def index
-    @symptoms = Symptom.page(params[:page]).per(10)
+    @q = Symptom.ransack(params[:q])
+    @symptoms = @q.result(:distinct => true).includes(:logs, :users).page(params[:page]).per(10)
 
     render("symptoms/index.html.erb")
   end
