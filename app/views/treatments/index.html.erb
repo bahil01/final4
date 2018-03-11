@@ -16,7 +16,7 @@
 
       <% @treatments.each do |treatment| %>
       <tr>
-        <td><%= treatment.user_id %></td>
+        <td><%= treatment.user.created_at %></td>
         <td><%= treatment.treatment_name %></td>
         <td>
           <a href="/treatments/<%= treatment.id %>" class="btn btn-primary">Show</a>
