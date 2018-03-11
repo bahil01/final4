@@ -47,8 +47,6 @@ class LogsController < ApplicationController
 
   def update
     @log = Log.find(params[:id])
-
-    @log.user_id = params[:user_id]
     @log.symptom_id = params[:symptom_id]
 
     save_status = @log.save
