@@ -33,7 +33,7 @@
           Symptom
         </label>
 
-        <input type="text" id="symptom_id" name="symptom_id" placeholder="Symptom" class="form-control" value="<%= @log.symptom_id %>">
+        <%= select_tag(:symptom_id, options_from_collection_for_select(Symptom.all, :id, :symptom_name, @log.symptom_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-warning">
