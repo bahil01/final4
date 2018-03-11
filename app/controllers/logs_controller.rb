@@ -10,7 +10,7 @@ class LogsController < ApplicationController
   end
 
   def index
-    @logs = Log.all
+    @logs = current_user.logs.page(params[:page]).per(10)
 
     render("logs/index.html.erb")
   end
