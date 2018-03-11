@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "cancers#index"
   # Routes for the Log resource:
   # CREATE
   get "/logs/new", :controller => "logs", :action => "new"
