@@ -17,3 +17,65 @@
     </div>
   </div>
 </div>
+
+<!-- A User has many logs -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Logs
+      </li>
+
+      <% @user.logs.each do |log| %>
+        <li class="list-group-item">
+          <a href="/logs/<%= log.id %>">
+            <%= log.user_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/logs/<%= log.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/logs/<%= log.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_log/<%= log.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A User has many symptoms -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Symptoms
+      </li>
+
+      <% @user.symptoms.each do |symptom| %>
+        <li class="list-group-item">
+          <a href="/symptoms/<%= symptom.id %>">
+            <%= symptom.symptom_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/symptoms/<%= symptom.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/symptoms/<%= symptom.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_symptom/<%= symptom.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
