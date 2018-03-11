@@ -6,6 +6,7 @@ class SymptomsController < ApplicationController
   end
 
   def show
+    @log = Log.new
     @symptom = Symptom.find(params[:id])
 
     render("symptoms/show.html.erb")
