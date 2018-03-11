@@ -20,8 +20,11 @@
         <td><%= treatment.treatment_name %></td>
         <td>
           <a href="/treatments/<%= treatment.id %>" class="btn btn-primary">Show</a>
-          <a href="/treatments/<%= treatment.id %>/edit" class="btn btn-warning">Edit</a>
-          <a href="/delete_treatment/<%= treatment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          
+          <% if current_user == treatment.user %>
+            <a href="/treatments/<%= treatment.id %>/edit" class="btn btn-warning">Edit</a>
+            <a href="/delete_treatment/<%= treatment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+          <% end %>
         </td>
       </tr>
       <% end %>

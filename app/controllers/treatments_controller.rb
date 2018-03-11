@@ -1,4 +1,14 @@
 class TreatmentsController < ApplicationController
+  before_action :current_user_must_be_treatment_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_treatment_user
+    treatment = Treatment.find(params[:id])
+
+    unless current_user == treatment.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @treatments = Treatment.all
 
