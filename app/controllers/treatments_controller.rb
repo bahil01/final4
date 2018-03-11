@@ -47,8 +47,6 @@ class TreatmentsController < ApplicationController
 
   def update
     @treatment = Treatment.find(params[:id])
-
-    @treatment.user_id = params[:user_id]
     @treatment.treatment_name = params[:treatment_name]
 
     save_status = @treatment.save
