@@ -1,5 +1,5 @@
 class CancersController < ApplicationController
-  before_action :current_user_must_be_cancer_user, :only => [:edit, :update, :destroy]
+  before_action :current_user_must_be_cancer_user, :only => [:show, :edit, :update, :destroy]
 
   def current_user_must_be_cancer_user
     cancer = Cancer.find(params[:id])
