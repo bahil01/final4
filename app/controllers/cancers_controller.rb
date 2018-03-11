@@ -1,4 +1,14 @@
 class CancersController < ApplicationController
+  before_action :current_user_must_be_cancer_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_cancer_user
+    cancer = Cancer.find(params[:id])
+
+    unless current_user == cancer.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @cancers = Cancer.all
 
