@@ -1,4 +1,14 @@
 class LogsController < ApplicationController
+  before_action :current_user_must_be_log_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_log_user
+    log = Log.find(params[:id])
+
+    unless current_user == log.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @logs = Log.all
 

@@ -17,12 +17,14 @@
       <a href="/logs" class="btn btn-primary">
         Back
       </a>
-      <a href="/logs/<%= @log.id %>/edit" class="btn btn-warning">
-        Edit
-      </a>
-      <a href="/delete_log/<%= @log.id %>" class="btn btn-danger" rel="nofollow">
-        Delete
-      </a>
+      <% if current_user == @log.user %>
+        <a href="/logs/<%= @log.id %>/edit" class="btn btn-warning">
+          Edit
+        </a>
+        <a href="/delete_log/<%= @log.id %>" class="btn btn-danger" rel="nofollow">
+          Delete
+        </a>
+      <% end %>
     </div>
   </div>
 </div>
