@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>User</dt>
-      <dd><%= @cancer.user_id %></dd>
+      <dd>
+        <% if @cancer.user.present? %>
+          <a href="/users/<%= @cancer.user_id %>">
+            <%= @cancer.user.created_at %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Cancer name</dt>
       <dd><%= @cancer.cancer_name %></dd>

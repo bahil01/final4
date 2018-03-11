@@ -16,7 +16,13 @@
 
       <% @cancers.each do |cancer| %>
       <tr>
-        <td><%= cancer.user.created_at %></td>
+        <td>
+          <% if cancer.user.present? %>
+            <a href="/users/<%= cancer.user.id %>">
+              <%= cancer.user.created_at %>
+            </a>
+          <% end %>
+        </td>
         <td><%= cancer.cancer_name %></td>
         <td>
           <a href="/cancers/<%= cancer.id %>" class="btn btn-primary">Show</a>

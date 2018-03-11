@@ -16,8 +16,20 @@
 
       <% @logs.each do |log| %>
       <tr>
-        <td><%= log.user.created_at %></td>
-        <td><%= log.symptom.symptom_name %></td>
+        <td>
+          <% if log.user.present? %>
+            <a href="/users/<%= log.user.id %>">
+              <%= log.user.created_at %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if log.symptom.present? %>
+            <a href="/symptoms/<%= log.symptom.id %>">
+              <%= log.symptom.symptom_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/logs/<%= log.id %>" class="btn btn-primary">Show</a>
           
