@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Symptom resource:
+  # CREATE
+  get "/symptoms/new", :controller => "symptoms", :action => "new"
+  post "/create_symptom", :controller => "symptoms", :action => "create"
+
+  # READ
+  get "/symptoms", :controller => "symptoms", :action => "index"
+  get "/symptoms/:id", :controller => "symptoms", :action => "show"
+
+  # UPDATE
+  get "/symptoms/:id/edit", :controller => "symptoms", :action => "edit"
+  post "/update_symptom/:id", :controller => "symptoms", :action => "update"
+
+  # DELETE
+  get "/delete_symptom/:id", :controller => "symptoms", :action => "destroy"
+  #------------------------------
+
   # Routes for the Treatment resource:
   # CREATE
   get "/treatments/new", :controller => "treatments", :action => "new"
