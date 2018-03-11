@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Treatments
+    <a href="/treatments/new" class="btn btn-lg btn-success">New Treatment</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>User</th>
+        <th>Treatment name</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @treatments.each do |treatment| %>
+      <tr>
+        <td><%= treatment.user_id %></td>
+        <td><%= treatment.treatment_name %></td>
+        <td>
+          <a href="/treatments/<%= treatment.id %>" class="btn btn-primary">Show</a>
+          <a href="/treatments/<%= treatment.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_treatment/<%= treatment.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
