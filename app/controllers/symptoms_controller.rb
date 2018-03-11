@@ -1,6 +1,6 @@
 class SymptomsController < ApplicationController
   def index
-    @symptoms = Symptom.all
+    @symptoms = Symptom.page(params[:page]).per(10)
 
     render("symptoms/index.html.erb")
   end
